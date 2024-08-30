@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS 練習⓶(Class名付与)</title>
+   <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+   <header>
+      <h1>CSS 練習⓶(Class名付与)</h1>
+   </header>
+
+   <div class="container">
+      <section>
+         <h2>1. クラス名とは？</h2>
+         <p>クラス名は、HTML要素にスタイルを適用するためのラベルのようなものです。複数の要素に同じクラス名を付与することで、同じスタイルをまとめて適用することができます。これにより、効率的にデザインを管理することができます。
+         </p>
+      </section>
+
+      <section>
+         <h2>2. クラス名の付与方法</h2>
+         <p>HTML要素にクラス名を付与するには、<code>class</code>属性を使用します。以下は、<code>div</code>要素にクラス名を付与する例です。</p>
+         <pre>
+            &lt;div class="container"&gt;
+            ここにコンテンツが入ります。
+            &lt;/div&gt;
+         </pre>
+         <p>この例では、<code>class="container"</code>と指定することで、この<code>div</code>要素に「container」というクラス名が付与されています。</p>
+      </section>
+
+      <section>
+         <h2>3. CSSでクラス名を使ったスタイル適用</h2>
+         <p>クラス名を使ってスタイルを適用するには、CSSファイル内でクラス名の前にドット（<code>.</code>）を付けて指定します。以下は、先ほどの「container」クラスにスタイルを適用する例です。</p>
+         <pre>
+            /* containerクラスに対してスタイルを適用 */
+            .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            }
+         </pre>
+         <p>この例では、「container」クラスに対して、幅（<code>width</code>）、マージン（<code>margin</code>）、パディング（<code>padding</code>）、背景色（<code>background-color</code>）が適用されています。
+         </p>
+      </section>
+
+      <section>
+         <h2>4. 複数のクラス名を適用する</h2>
+         <p>1つのHTML要素に対して、複数のクラス名を付与することも可能です。クラス名をスペースで区切って指定します。以下の例を見てみましょう。</p>
+         <pre>
+            &lt;div class="container highlight"&gt;
+            ここにコンテンツが入ります。
+            &lt;/div&gt;
+         </pre>
+         <p>この例では、「container」と「highlight」という2つのクラス名が付与されています。それぞれのクラスにCSSでスタイルを定義することで、要素に複数のスタイルを適用できます。</p>
+         <pre>
+            /* containerクラスのスタイル */
+            .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            }
+
+            /* highlightクラスのスタイル */
+            .highlight {
+            border: 2px solid red;
+            }
+         </pre>
+         <p>このように、<code>.container</code>と<code>.highlight</code>のスタイルが組み合わさって適用されます。</p>
+      </section>
+
+      <section>
+         <h2>5. 練習課題: クラス名を使ったスタイルの管理</h2>
+         <p>以下の課題に挑戦して、クラス名を使ったスタイルの管理方法に慣れてください。</p>
+         <ul>
+            <li>1. 「box」というクラス名を持つ<code>div</code>要素を作成し、幅、マージン、背景色を指定します。</li>
+            <li>2. 「highlight」というクラスを作成し、枠線やフォントサイズを指定します。</li>
+            <li>3. 「box」と「highlight」の両方を持つ<code>div</code>要素を作成し、両方のスタイルが適用されていることを確認します。</li>
+            <li>4. 複数の要素に「highlight」クラスを適用し、デザインの一貫性を保つ方法を試してみてください。</li>
+         </ul>
+         <p>ブラウザで結果を確認し、クラス名を使ったスタイルの適用方法を理解しましょう。</p>
+      </section>
+   </div>
+</body>
+
+</html>

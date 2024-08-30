@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS 練習⓵(Border)</title>
+   <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+   <header>
+      <h1>CSS 練習⓵(Border)</h1>
+   </header>
+
+   <div class="container">
+      <section>
+         <h2>1. CSSのborderプロパティとは？</h2>
+         <p>CSSの<code>border</code>プロパティは、要素の周りに枠線を追加するためのプロパティです。<code>border</code>は、色、太さ、スタイルの3つの要素で構成されており、これらを組み合わせて枠線をカスタマイズできます。
+         </p>
+      </section>
+
+      <section>
+         <h2>2. 基本的なborderの使い方</h2>
+         <p>以下のコード例では、<code>border</code>プロパティを使用して、要素の周りに1pxの黒い実線を設定しています。</p>
+         <pre>
+            /* p要素に1pxの黒い実線を適用 */
+            p {
+            border: 1px solid black;
+            }
+         </pre>
+         <p>上記の例では、<code>1px</code>が線の太さ、<code>solid</code>が線のスタイル、<code>black</code>が線の色を指定しています。</p>
+      </section>
+
+      <section>
+         <h2>3. borderのカスタマイズ</h2>
+         <p><code>border</code>プロパティを使って、線の太さ、スタイル、色を自由にカスタマイズすることができます。以下の例を見てみましょう。</p>
+         <pre>
+            /* div要素にカスタマイズされた枠線を適用 */
+            div {
+            border-width: 3px;
+            border-style: dashed;
+            border-color: blue;
+            }
+         </pre>
+         <p>この例では、<code>border-width</code>で線の太さを3pxに、<code>border-style</code>で線のスタイルを破線（<code>dashed</code>）、<code>border-color</code>で線の色を青に設定しています。
+         </p>
+      </section>
+
+      <section>
+         <h2>4. 個別のborderプロパティ</h2>
+         <p><code>border</code>プロパティは、要素の四辺すべてに同じスタイルを適用しますが、各辺ごとに異なるスタイルを適用することも可能です。以下のプロパティを使って、個別に設定できます。</p>
+         <ul>
+            <li><code>border-top</code>: 上辺の枠線を指定</li>
+            <li><code>border-right</code>: 右辺の枠線を指定</li>
+            <li><code>border-bottom</code>: 下辺の枠線を指定</li>
+            <li><code>border-left</code>: 左辺の枠線を指定</li>
+         </ul>
+         <p>例：</p>
+         <pre>
+            /* div要素の各辺に異なる枠線を適用 */
+            div {
+            border-top: 2px solid red;
+            border-right: 5px dotted green;
+            border-bottom: 3px dashed blue;
+            border-left: 4px double black;
+            }
+         </pre>
+      </section>
+
+      <section>
+         <h2>5. 練習課題: 枠線を使ったデザインの作成</h2>
+         <p>以下の課題に挑戦してみましょう。簡単なボックスデザインを作成し、<code>border</code>プロパティを使ってスタイルをカスタマイズしてください。</p>
+         <ul>
+            <li>1. <code>div</code>要素を作成し、その周りに赤い実線の枠線（2px）を追加します。</li>
+            <li>2. <code>p</code>要素を作成し、その周りに青い破線の枠線（3px）を追加します。</li>
+            <li>3. 上記の枠線スタイルを応用して、独自のデザインを作成してみてください。</li>
+         </ul>
+         <p>作成したデザインをブラウザで表示し、結果を確認してみましょう。</p>
+      </section>
+   </div>
+</body>
+
+</html>

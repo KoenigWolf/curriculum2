@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS 記述</title>
+   <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+   <header>
+      <h1>CSS 記述</h1>
+   </header>
+
+   <div class="container">
+      <section>
+         <h2>1. CSSとは？</h2>
+         <p>CSS（Cascading Style
+            Sheets）は、HTMLで作成されたウェブページの見た目を装飾するためのスタイルシート言語です。CSSを使うことで、テキストの色やフォント、レイアウトなどを指定し、ウェブページを美しく見やすく整えることができます。
+         </p>
+      </section>
+
+      <section>
+         <h2>2. CSSの基本的な記述方法</h2>
+         <p>CSSは、セレクタ（どの要素にスタイルを適用するかを指定する部分）と、そのスタイルを定義するプロパティと値で構成されます。以下が基本的なCSSの記述例です。</p>
+         <pre>
+            /* h1要素のテキストカラーを青にする */
+            h1 {
+            color: blue;
+            }
+
+            /* p要素のフォントサイズを16pxに設定する */
+            p {
+            font-size: 16px;
+            }
+         </pre>
+         <p>上記のように、セレクタで指定したHTML要素に対して、プロパティとその値を中括弧 `{}` の中に記述します。</p>
+      </section>
+
+      <section>
+         <h2>3. CSSの適用方法</h2>
+         <p>CSSをHTMLに適用する方法はいくつかありますが、ここでは3つの基本的な方法を紹介します。</p>
+         <ul>
+            <li><strong>インラインスタイル</strong>: HTMLタグ内に直接記述する方法です。
+               <pre>&lt;p style="color: red;"&gt;このテキストは赤色です。&lt;/p&gt;</pre>
+            </li>
+            <li><strong>内部スタイルシート</strong>: HTMLファイルの`&lt;head&gt;`タグ内に`&lt;style&gt;`タグを使って記述します。
+               <pre>
+                  &lt;style&gt;
+                  p {
+                  color: green;
+                  }
+                  &lt;/style&gt;
+               </pre>
+            </li>
+            <li><strong>外部スタイルシート</strong>: CSSを外部ファイルに記述し、それをHTMLファイルにリンクする方法です。最も推奨される方法です。
+               <pre>
+                  /* styles.css */
+                  p {
+                  color: blue;
+                  }
+
+                  <!-- HTMLファイル内 -->
+                  &lt;link rel="stylesheet" href="styles.css"&gt;
+               </pre>
+            </li>
+         </ul>
+         <p>外部スタイルシートを使うと、複数のHTMLファイルに対して一貫したスタイルを適用できます。</p>
+      </section>
+
+      <section>
+         <h2>4. CSSの基本プロパティ</h2>
+         <p>CSSには多くのプロパティがありますが、以下はよく使われる基本的なプロパティです。</p>
+         <ul>
+            <li><strong>color</strong>: テキストの色を指定します。</li>
+            <li><strong>background-color</strong>: 背景色を指定します。</li>
+            <li><strong>font-size</strong>: テキストのサイズを指定します。</li>
+            <li><strong>margin</strong>: 要素の外側の余白を指定します。</li>
+            <li><strong>padding</strong>: 要素の内側の余白を指定します。</li>
+            <li><strong>border</strong>: 要素の枠線を指定します。</li>
+         </ul>
+      </section>
+
+      <section>
+         <h2>5. CSSのセレクタ</h2>
+         <p>CSSのセレクタには、要素セレクタ、クラスセレクタ、IDセレクタなどがあります。それぞれの使い方を以下に示します。</p>
+         <ul>
+            <li><strong>要素セレクタ</strong>: HTMLの要素名を使ってスタイルを適用します。
+               <pre>h1 { color: red; }</pre>
+            </li>
+            <li><strong>クラスセレクタ</strong>: クラス属性に基づいてスタイルを適用します。クラス名の前にドット `.` をつけます。
+               <pre>.highlight { color: yellow; }</pre>
+            </li>
+            <li><strong>IDセレクタ</strong>: ID属性に基づいてスタイルを適用します。ID名の前にハッシュ `#` をつけます。
+               <pre>#header { background-color: grey; }</pre>
+            </li>
+         </ul>
+      </section>
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Laravel DB連携</title>
+   <link href="../output.css" rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased">
+   <header class="bg-white shadow">
+      <div class="container mx-auto py-6 px-4 flex justify-between items-center">
+         <h1 class="text-4xl font-bold tracking-tight">Laravel DB連携</h1>
+         <nav class="space-x-4">
+            <a href="../index.php" class="text-gray-600 hover:text-gray-900 transition">トップページに戻る</a>
+         </nav>
+      </div>
+   </header>
+
+   <main class="container mx-auto my-16 px-4">
+      <section class="mb-16">
+         <h2 class="text-3xl font-semibold mb-4 border-b-2 border-gray-300 pb-2">データベース設定</h2>
+         <p class="text-lg leading-relaxed mb-6">
+            Laravelは、非常に強力なデータベース連携機能を持っています。最初に、Laravelアプリケーションのデータベース設定を行います。設定ファイルは、プロジェクトのルートディレクトリにある`.env`ファイルです。このファイルに、データベースの接続情報を記述します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               DB_CONNECTION=mysql
+               DB_HOST=127.0.0.1
+               DB_PORT=3306
+               DB_DATABASE=laravel_db
+               DB_USERNAME=root
+               DB_PASSWORD=
+            </pre>
+         </div>
+         <p class="text-lg leading-relaxed mt-6">
+            上記の設定は、MySQLデータベースに接続する例です。適切な接続情報に置き換えてください。
+         </p>
+      </section>
+
+      <section class="mb-16">
+         <h2 class="text-3xl font-semibold mb-4 border-b-2 border-gray-300 pb-2">マイグレーションの作成</h2>
+         <p class="text-lg leading-relaxed mb-6">
+            マイグレーションは、データベースのスキーマをバージョン管理するためのLaravelの機能です。新しいマイグレーションを作成するには、以下のコマンドを使用します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               php artisan make:migration create_users_table
+            </pre>
+         </div>
+         <p class="text-lg leading-relaxed mt-6">
+            これにより、`database/migrations`ディレクトリに新しいマイグレーションファイルが作成されます。作成されたファイルには、データベーステーブルを定義するためのコードを記述します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               Schema::create('users', function (Blueprint $table) {
+               $table->id();
+               $table->string('name');
+               $table->string('email')->unique();
+               $table->timestamps();
+               });
+            </pre>
+         </div>
+      </section>
+
+      <section class="mb-16">
+         <h2 class="text-3xl font-semibold mb-4 border-b-2 border-gray-300 pb-2">モデルとEloquent ORM</h2>
+         <p class="text-lg leading-relaxed mb-6">
+            Laravelは、Eloquent ORMを使ってデータベースとやり取りします。モデルは、データベーステーブルに対応するクラスです。新しいモデルを作成するには、以下のコマンドを使用します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               php artisan make:model User
+            </pre>
+         </div>
+         <p class="text-lg leading-relaxed mt-6">
+            作成されたモデルは、`app/Models`ディレクトリに保存されます。`User`モデルは、`users`テーブルと連携します。Eloquentを使って、簡単にデータベースからデータを取得したり、保存したりすることができます。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               $user = User::find(1);
+               $user->name = 'New Name';
+               $user->save();
+            </pre>
+         </div>
+      </section>
+
+      <section class="mb-16">
+         <h2 class="text-3xl font-semibold mb-4 border-b-2 border-gray-300 pb-2">データベースのシーディング</h2>
+         <p class="text-lg leading-relaxed mb-6">
+            シーディングは、開発やテスト環境で使用するデータをデータベースに自動で挿入するための機能です。シーダーファイルは、`database/seeders`ディレクトリに作成されます。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               php artisan make:seeder UsersTableSeeder
+            </pre>
+         </div>
+         <p class="text-lg leading-relaxed mt-6">
+            シーダーファイルには、データベースに挿入するデータを定義します。例えば、以下のように記述します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               public function run()
+               {
+               DB::table('users')->insert([
+               'name' => 'John Doe',
+               'email' => 'johndoe@example.com',
+               'password' => bcrypt('password'),
+               ]);
+               }
+            </pre>
+         </div>
+         <p class="text-lg leading-relaxed mt-6">
+            シーディングを実行するには、以下のコマンドを使用します。
+         </p>
+         <div class="bg-gray-100 p-4 rounded-md shadow-sm">
+            <pre class="text-sm text-gray-800">
+               php artisan db:seed --class=UsersTableSeeder
+            </pre>
+         </div>
+      </section>
+   </main>
+
+   <footer class="bg-gray-100 py-6 mt-12">
+      <div class="container mx-auto text-center">
+         <a href="../index.php" class="text-gray-600 hover:text-gray-900 transition font-semibold text-lg">トップページに戻る</a>
+      </div>
+   </footer>
+</body>
+
+</html>

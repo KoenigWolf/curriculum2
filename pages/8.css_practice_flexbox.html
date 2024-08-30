@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS 練習⓷(Flexbox)</title>
+   <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+   <header>
+      <h1>CSS 練習⓷(Flexbox)</h1>
+   </header>
+
+   <div class="container">
+      <section>
+         <h2>1. Flexboxとは？</h2>
+         <p>Flexbox（フレックスボックス）は、CSSのレイアウトモジュールの一つで、要素を柔軟かつ効率的に配置するために使用されます。Flexboxを使用すると、複雑なレイアウトを簡単に作成でき、特にレスポンシブデザインにおいて強力です。
+         </p>
+      </section>
+
+      <section>
+         <h2>2. Flexboxの基本的な使い方</h2>
+         <p>Flexboxを使用するには、親要素に<code>display: flex;</code>を設定します。これにより、その子要素がフレックスコンテナ内で並べられます。以下は基本的な例です。</p>
+         <pre>
+            /* 親要素にdisplay: flex;を適用 */
+            .container {
+            display: flex;
+            }
+
+            /* 子要素に対するスタイル（任意） */
+            .container div {
+            padding: 10px;
+            background-color: lightgray;
+            margin: 5px;
+            }
+         </pre>
+         <p>上記のスタイルを適用すると、子要素が横並びになり、指定されたパディングとマージンが適用されます。</p>
+      </section>
+
+      <section>
+         <h2>3. フレックスコンテナの主軸と交差軸</h2>
+         <p>Flexboxのレイアウトでは、<strong>主軸</strong>（main axis）と<strong>交差軸</strong>（cross
+            axis）という概念が重要です。デフォルトでは、主軸は水平方向（横方向）に設定されますが、<code>flex-direction</code>プロパティを使って変更することができます。</p>
+         <pre>
+            /* 主軸を縦方向に変更 */
+            .container {
+            display: flex;
+            flex-direction: column;
+            }
+         </pre>
+         <p>この例では、<code>flex-direction: column;</code>を指定することで、主軸が縦方向（縦並び）になります。</p>
+      </section>
+
+      <section>
+         <h2>4. 子要素の配置と並べ方</h2>
+         <p>Flexboxでは、子要素の配置や並べ方を簡単にコントロールできます。主なプロパティとして以下が挙げられます。</p>
+         <ul>
+            <li><strong>justify-content</strong>: 主軸に沿った配置を指定します（例：左寄せ、中央揃え、右寄せなど）。
+               <pre>
+                  /* 子要素を中央に配置 */
+                  .container {
+                  display: flex;
+                  justify-content: center;
+                  }
+               </pre>
+            </li>
+            <li><strong>align-items</strong>: 交差軸に沿った配置を指定します（例：上揃え、中央揃え、下揃えなど）。
+               <pre>
+                  /* 子要素を交差軸の中央に揃える */
+                  .container {
+                  display: flex;
+                  align-items: center;
+                  }
+               </pre>
+            </li>
+            <li><strong>flex-wrap</strong>: 子要素がフレックスコンテナ内に収まらない場合に折り返しを設定します。
+               <pre>
+                  /* 子要素を折り返す */
+                  .container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  }
+               </pre>
+            </li>
+         </ul>
+      </section>
+
+      <section>
+         <h2>5. 練習課題: Flexboxを使ったレイアウト作成</h2>
+         <p>以下の課題に挑戦して、Flexboxを使ったレイアウト作成に慣れてください。</p>
+         <ul>
+            <li>1. Flexboxを使用して、横並びの3つのボックスを作成します。それぞれのボックスには、適切なパディングとマージンを設定してください。</li>
+            <li>2. ボックスを中央揃えにし、ページの中央に配置します。</li>
+            <li>3. ボックスが画面幅を超える場合に、折り返されるように設定します。</li>
+            <li>4. 縦並びのレイアウトを作成し、ボックスを上下に中央揃えにします。</li>
+         </ul>
+         <p>ブラウザで結果を確認し、Flexboxを使ったレイアウトの自由度と使いやすさを体感してください。</p>
+      </section>
+   </div>
+</body>
+
+</html>
